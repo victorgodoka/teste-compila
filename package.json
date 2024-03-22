@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --port 3000",
+    "server": "json-server db.json",
     "build": "NODE_ENV=production webpack"
   },
   "keywords": [],
@@ -23,6 +24,7 @@
   "dependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
