@@ -1,4 +1,5 @@
 const prod = process.env.NODE_ENV === "production";
+const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -26,6 +27,12 @@ module.exports = {
     ],
   },
   devtool: prod ? undefined : "source-map",
+  devServer: {
+    historyApiFallback: true, 
+    static: path.join(__dirname, '../dist'),
+    port: 3001,
+    compress: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
