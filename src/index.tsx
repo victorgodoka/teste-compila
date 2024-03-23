@@ -5,12 +5,11 @@ import {
   createBrowserRouter,
   Route,
   Outlet,
-  Link,
   createRoutesFromElements,
 } from "react-router-dom";
 import Listagem from "./Listagem";
 import Contato from "./Contato";
-import CriarContato from "./CriarContato";
+import CriarContato from "./CriarEditarContato";
 
 import "./styles.css";
 
@@ -29,7 +28,9 @@ const router = createBrowserRouter(
         path="/"
         element={<Listagem />}
         loader={() =>
-          fetch("http://localhost:3000/contatos?_sort=nome").then((res) => res.json())
+          fetch("http://localhost:3000/contatos?_sort=nome").then((res) =>
+            res.json()
+          )
         }
       />
       <Route
@@ -42,6 +43,15 @@ const router = createBrowserRouter(
         }
       />
       <Route path="/criar" element={<CriarContato />} />
+      <Route
+        path="/editar/:id"
+        element={<CriarContato />}
+        loader={({ params }) =>
+          fetch(`http://localhost:3000/contatos/${params.id}`).then((res) =>
+            res.json()
+          )
+        }
+      />
     </Route>,
   ])
 );

@@ -5,7 +5,7 @@ export const Form = styled.form`
   border-radius: 20px;
   height: 500px;
   padding: 20px;
-  width: 320px;
+  width: 640px;
   margin: 0 auto;
 `;
 
@@ -42,3 +42,9 @@ export const Button = styled.button`
   text-align: center;
   width: 100%;
 `;
+
+export const Error = styled.p`
+  font-size: .955rem;
+  color: red;
+  margin: 8px 0;
+`

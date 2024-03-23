@@ -5,3 +5,8 @@ type Contatos = {
   tel_celular: string;
   tel_trabalho: string;
 }
+
+type ListagemContatos = {
+  [key: string]: any;
+  contatos: Contatos[];
+}
