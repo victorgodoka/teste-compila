@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Contato, Letter, Linha, ListagemWrapper } from "./Listagem.styles";
 import { Input } from "../CriarEditarContato/CriarEditarContato.style";
 
 export default function Listagem() {
   const [listagemFinal, setListagem] = useState<ListagemContatos>();
   const listagem = useLoaderData() as Contatos[];
+  const navigate = useNavigate();
 
   let data = (array:any) => array.reduce((r: any, e: any) => {
     let letra = e.nome[0];
@@ -29,7 +30,7 @@ export default function Listagem() {
     if (confirm("Deseja apagar este contato?")) {
       return fetch(`http://localhost:3000/contatos/${id}`, {
         method: "DELETE",
-      });
+      }).finally(() => navigate(0));
     }
   };
 

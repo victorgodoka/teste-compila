@@ -31,7 +31,7 @@ export default function CriarContato() {
 
     setContatoError((prevContatoError) => ({
       ...prevContatoError,
-      [`${name}Error`]: !value,
+      nomeError: !value,
     }));
   };
 
@@ -91,7 +91,7 @@ export default function CriarContato() {
           onChange={handleChange}
           onBlur={handleName}
         />
-        {contatoError.tel_celularError ? (
+        {contatoError.nomeError ? (
           <Error>Nome não pode ficar vazio</Error>
         ) : (
           ""
